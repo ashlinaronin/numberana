@@ -63,6 +63,16 @@
 
             $this->assertEquals("two hundred two", $result);
         }
+
+        function test_numberToWord_teens()
+        {
+            $test_Numberana = new Numberana;
+            $input_number = 13;
+
+            $result = $test_Numberana->numberToWord($input_number);
+
+            $this->assertEquals("thirteen", $result);
+        }
     }
 
  ?>
