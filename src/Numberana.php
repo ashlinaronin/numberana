@@ -78,6 +78,8 @@
                         // 101, 202, 303, 404, 505, 606, 707, 808, 909
                         elseif ($digits[0] != 0 && $digits[1] == 0 && $digits[2] != 0) {
                             $output_string = $oughts[$digits[0]] . " hundred " . $oughts[$digits[2]];
+                        } elseif ($digits[0] != 0 && $digits[1] != 0 && $digits[2] != 0) {
+                            $output_string = $oughts[$digits[0]] . " hundred " . $tens[$digits[1]] . "-" . $oughts[$digits[2]];
                         }
                         break;
                 }
@@ -90,6 +92,8 @@
 
             return $output_string;
         }
+
+
     }
 
 

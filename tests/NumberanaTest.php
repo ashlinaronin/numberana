@@ -73,6 +73,16 @@
 
             $this->assertEquals("thirteen", $result);
         }
+
+        function test_numberToWord_threeDigitAll()
+        {
+            $test_Numberana = new Numberana;
+            $input_number = 333;
+
+            $result = $test_Numberana->numberToWord($input_number);
+
+            $this->assertEquals("three hundred thirty-three", $result);
+        }
     }
 
  ?>
