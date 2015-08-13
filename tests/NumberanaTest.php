@@ -13,6 +13,16 @@
 
             $this->assertEquals("zero", $result);
         }
+
+        function test_numberToWord_oneDigitNumber()
+        {
+            $test_Numberana = new Numberana;
+            $input_number = 1;
+
+            $result = $test_Numberana->numberToWord($input_number);
+
+            $this->assertEquals("one", $result);
+        }
     }
 
  ?>
