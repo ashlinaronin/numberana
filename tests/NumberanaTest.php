@@ -51,7 +51,7 @@
 
             $result = $test_Numberana->numberToWord($input_number);
 
-            $this->assertEquals("one-hundred", $result);
+            $this->assertEquals("one hundred", $result);
         }
     }
 
