@@ -23,6 +23,16 @@
 
             $this->assertEquals("one", $result);
         }
+
+        function test_numberToWord_twoDigitNumber()
+        {
+            $test_Numberana = new Numberana;
+            $input_number = 10;
+
+            $result = $test_Numberana->numberToWord($input_number);
+
+            $this->assertEquals("ten", $result);
+        }
     }
 
  ?>
