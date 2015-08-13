@@ -32,25 +32,60 @@
                 9 => 'ninety'
             );
 
-            $digits = str_split($input_number);
-            $num_digits = sizeof($digits);
+            $teens = array(
+                1 => 'eleven',
+                2 => 'twelve',
+                3 => 'thirteen',
+                4 => 'fourteen',
+                5 => 'fifteen',
+                6 => 'sixteen',
+                7 => 'seventeen',
+                8 => 'eighteen',
+                9 => 'nineteen'
+            );
 
-            // 10, 20, 30, 40, 50, 60, 70, 80, 90 -> don't print "zero"
-            if ($num_digits == 2 && $digits[1] == 0) {
-                $output_string = $tens[$digits[0]];
-            }
-            // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 -> print one word
-            elseif ($num_digits == 1) {
-                $output_string = $oughts[$digits[0]];
-            }
-            //100, 200, 300, 400, 500, 600, 700, 800, 900 ->three digit numbers
-            elseif ($num_digits == 3 && $digits[1] == 0 && $digits[2] == 0) {
-                $output_string = $oughts[$digits[0]] . " hundred";
-            }
+            // before we do anything else, check if input number is zero
+            if ($input_number != 0) {
+                $digits = str_split($input_number);
+                $num_digits = sizeof($digits);
 
-            // anything else
-            else {
-                $output_string = $tens[$digits[0]] . "-" . $oughts[$digits[1]];
+                switch($num_digits) {
+                    case 1:
+                        // 1, 2, 3, 4, 5, 6, 7, 8, 9
+                        $output_string = $oughts[$digits[0]];
+                        break;
+                    case 2:
+                        // 10, 20, 30, 40, 50, 60, 70, 80, 90
+                        if ($digits[0] != 0 && $digits[1] == 0) {
+                            $output_string = $tens[$digits[0]];
+
+                        }
+                        // 22, 33, 44, 55, 66, 77, 88, 99 (not teens!!!)
+                        elseif ($digits[0] != 1 && $digits[1] != 0) {
+                            $output_string = $tens[$digits[0]] . "-" . $oughts[$digits[1]];
+                        }
+                        // 11, 12, 13, 14, 15, 16, 17, 18, 19
+                        elseif ($digits[0] == 1 && $digits[1] != 0) {
+                            // add teens
+                        }
+                        break;
+                    case 3:
+                        // 100, 200, 300, 400, 500, 600, 700, 800, 900
+                        if ($digits[1] == 0 && $digits[2] == 0) {
+                            $output_string = $oughts[$digits[0]] . " hundred";
+
+                        }
+                        // 101, 202, 303, 404, 505, 606, 707, 808, 909
+                        elseif ($digits[0] != 0 && $digits[1] == 0 && $digits[2] != 0) {
+                            $output_string = $oughts[$digits[0]] . " hundred " . $oughts[$digits[2]];
+                        }
+                        break;
+                }
+
+
+            } else {
+                // Input number is any combination of only zeroes, output zero string
+                $output_string = "zero";
             }
 
             return $output_string;
