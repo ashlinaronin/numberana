@@ -53,6 +53,16 @@
 
             $this->assertEquals("one hundred", $result);
         }
+
+        function test_numberToWord_threeDigitNoTens()
+        {
+            $test_Numberana = new Numberana;
+            $input_number = 202;
+
+            $result = $test_Numberana->numberToWord($input_number);
+
+            $this->assertEquals("two hundred two", $result);
+        }
     }
 
  ?>
