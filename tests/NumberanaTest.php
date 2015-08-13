@@ -33,6 +33,16 @@
 
             $this->assertEquals("ten", $result);
         }
+
+        function test_numberToWord_twoDigitNonZero()
+        {
+            $test_Numberana = new Numberana;
+            $input_number = 22;
+
+            $result = $test_Numberana->numberToWord($input_number);
+
+            $this->assertEquals("twenty-two", $result);
+        }
     }
 
  ?>

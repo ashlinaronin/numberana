@@ -33,19 +33,19 @@
             );
 
             $input_array = str_split($input_number);
-            $input_length = sizeof($input_array);
+            $num_digits = sizeof($input_array);
 
-            // 10, 20, 30, 40, 50, 60, 70, etc -> don't print "zero"
-            if ($input_length==2 && $input_array[1] == 0) {
+            // 10, 20, 30, 40, 50, 60, 70, 80, 90 -> don't print "zero"
+            if ($num_digits == 2 && $input_array[1] == 0) {
                 $output_string = $tens[$input_array[0]];
             }
             // 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 -> print one word
-            elseif ($input_length==1) {
+            elseif ($num_digits == 1) {
                 $output_string = $oughts[$input_array[0]];
 
             // anything else
             } else {
-                $output_string = $tens[$input_array[0]] . " " . $oughts[$input_array[1]];
+                $output_string = $tens[$input_array[0]] . "-" . $oughts[$input_array[1]];
             }
 
             return $output_string;
