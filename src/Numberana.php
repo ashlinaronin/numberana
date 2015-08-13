@@ -66,7 +66,7 @@
                         }
                         // 11, 12, 13, 14, 15, 16, 17, 18, 19
                         elseif ($digits[0] == 1 && $digits[1] != 0) {
-                            // add teens
+                            $output_string = $teens[$digits[1]];
                         }
                         break;
                     case 3:
