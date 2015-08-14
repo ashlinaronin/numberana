@@ -83,6 +83,17 @@
 
             $this->assertEquals("three hundred thirty-three", $result);
         }
+
+        function test_twoDigits_zeroNine()
+        {
+            $test_Numberana = new Numberana;
+            $input_number = "09";
+            $test_digits = str_split($input_number);
+
+            $result = $test_Numberana->twoDigits($test_digits);
+
+            $this->assertEquals("nine", $result);
+        }
     }
 
  ?>
